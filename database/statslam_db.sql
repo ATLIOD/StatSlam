@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 16, 2024 at 04:47 AM
+-- Generation Time: Nov 23, 2024 at 10:39 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -10771,6 +10771,27 @@ INSERT INTO `teamtotals` (`recordID`, `teamID`, `games`, `fieldGoalsAttempted`, 
 (95, 95, 2150, 180325, 81817, 12.686, 218075, 43047, 15164, 9.81, 137278, 66653, 13.673, 52129, 39277, 21.17, 24341, 66336, 47651, 10041),
 (96, 96, 62, 4904, 1746, 0.356, 4921, 0, 0, 0, 4904, 1746, 0.356, 2002, 1429, 0.714, 0, 0, 1324, 0);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `userID` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` char(60) NOT NULL,
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`userID`, `email`, `password`, `first_name`, `last_name`) VALUES
+(1, 'db152@my.tamuct.edu', '$2y$10$mqN717xRov3Wkd5DxOEO1usUhdPTTyMl7Tt3SHhcSDv7DLjRjqpvm', 'Dominic', 'Burfict');
+
 --
 -- Indexes for dumped tables
 --
@@ -10801,6 +10822,22 @@ ALTER TABLE `teaminfo`
 ALTER TABLE `teamtotals`
   ADD PRIMARY KEY (`recordID`),
   ADD KEY `teamID` (`teamID`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`userID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables

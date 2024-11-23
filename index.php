@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION["userID"])) {
+    // Redirect to login page if not logged in
+    header("Location: login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,14 +26,22 @@
         </div>
     </div>
 
-  <div class="topnav">
-    <a class="active" href="index.php">Home</a>
-    <a href="allPlayers.php">Players</a>
-    <a href="pricing.php">Pricing</a>
-    <a href="login.php">Login</a>
-    <a href="signUp.php">Sign Up</a>
-    <a href="contact.php">Contact</a>
-  </div>
+    <div class="topnav">
+              <a class = "active" href="index.php">Home</a>
+              <a href="allPlayers.php">Players</a>
+              <a href="pricing.php">Pricing</a>
+
+              <?php if (!isset($_SESSION["userID"])): ?>
+                  <!-- Only show Login and Sign Up if the user is not logged in -->
+                  <a href="login.php">Login</a>
+                  <a href="signUp.php">Sign Up</a>
+              <?php else: ?>
+                  <!-- Show Logout when logged in -->
+                  <a href="logout.php">Logout</a>
+              <?php endif; ?>
+
+              <a href="contact.php">Contact</a>
+            </div>
 
 
   <div class="teamDisplay">

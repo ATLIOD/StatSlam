@@ -1,3 +1,5 @@
+<?php
+session_start(); ?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -36,17 +38,15 @@
             <h2>Login</h2>
         </center>
         </tr>
-        <form>
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username"><br>
-        <label for="password">Password:</label><br>
-        <input type="text" id="password" name="password">
+        <form method="POST" action="login_user.php">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+
+            <button type="submit">Login</button>
         </form>
-    </div>
-    <div>
-        <button class="loginSubmit" type="button">Submit
-        </button>
-        <a class="forgotPassword"href="example.com"><style="width:42px;height:42px;">Forgot Password</a>
     </div>
     </body>
 </html>

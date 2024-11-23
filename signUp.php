@@ -37,19 +37,23 @@
             <h2>Sign up</h2>
         </center>
         </tr>
-        <form>
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username"><br>
-        <label for="password">Password:</label><br>
-        <input type="text" id="password" name="password"><br>
-        <label for="confirmPassword">Confirm Password:</label><br>
-        <input type="text" id="confirmPassword" name="confirmPassword">
+            <h1>Create an Account</h1>
+            <form method="POST" action="add_user.php">
+                    <label for="first_name">First Name:</label>
+                    <input type="text" id="first_name" name="first_name" required><br>
 
-        </form>
-    </div>
-    <div>
-        <button class="signUpSubmit" type="button">Submit
-        </button>
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" id="last_name" name="last_name" required><br>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required><br>
+
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required><br>
+
+                    <button type="submit">Sign Up</button>
+                </form>
+            <p>Already have an account? <a href="login.php">Log in here</a>.</p>
     </div>
 
 </body>
