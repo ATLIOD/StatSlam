@@ -1,7 +1,4 @@
 <?php
-ini_set("display_errors", 1);
-ini_set("display_startup_errors", 1);
-error_reporting(E_ALL);
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Get data from form
@@ -20,17 +17,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         die("Please fill in all fields.");
     }
 
-    // Hash the password securely
+    // Hash password
     $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-    // Connect to the database
-    $conn = new mysqli("localhost", "root", "", "statslam_db"); // Replace with your DB credentials
+    // Connect to database
+    $conn = new mysqli("localhost", "root", "", "statslam_db");
 
     if ($conn->connect_error) {
         die("Database connection failed: " . $conn->connect_error);
     }
 
-    // Check if the email already exists in the database
+    // Check if the accoutnt wiht email exists
     $stmt = $conn->prepare("SELECT userID FROM user WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -39,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($stmt->num_rows > 0) {
         echo "Email already registered. Please use a different one.";
     } else {
-        // Insert the new user into the database
+        // add new userto database
         $stmt = $conn->prepare(
             "INSERT INTO user (first_name, last_name, email, password) VALUES (?, ?, ?, ?)"
         );
@@ -52,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         );
 
         if ($stmt->execute()) {
-            // Redirect to login page after successful signup
+            // Redirect to login page after done
             header("Location: login.php");
             exit();
         } else {

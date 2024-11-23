@@ -1,6 +1,5 @@
 <?php
 session_start();
-// Database connection
 $host = "localhost";
 $username = "root";
 $password = "";
@@ -8,18 +7,15 @@ $database = "statslam_db";
 
 $conn = new mysqli($host, $username, $password, $database);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Get player_id from URL
 $fullName = isset($_GET["fullName"]) ? intval($_GET["fullName"]) : "";
 
 $parts = preg_split('/\s+(?=\S*$)/', $fullName);
 
 if ($fullName != "") {
-    // Query player data
     $stmt = $conn->prepare(
         "SELECT teamID FROM teaminfo WHERE city = ? AND name = ?"
     );
@@ -44,7 +40,6 @@ if ($fullName != "") {
 }
 
 if ($fullName != "") {
-    // Query player data
     $stmt = $conn->prepare("SELECT * FROM playerinfo WHERE teamID = ?");
     $stmt->bind_param("i", $teamID);
     $stmt->execute();

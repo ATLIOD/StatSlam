@@ -1,7 +1,8 @@
 <?php
+//start session
 session_start();
+//check if session is logged, if not then send to login
 if (!isset($_SESSION["userID"])) {
-    // Redirect to login page if not logged in
     header("Location: login.php");
     exit();
 }
@@ -32,11 +33,10 @@ if (!isset($_SESSION["userID"])) {
               <a href="pricing.php">Pricing</a>
 
               <?php if (!isset($_SESSION["userID"])): ?>
-                  <!-- Only show Login and Sign Up if the user is not logged in -->
+                  <!-- show login and signup if not logged in,otherwise show logout -->
                   <a href="login.php">Login</a>
                   <a href="signUp.php">Sign Up</a>
               <?php else: ?>
-                  <!-- Show Logout when logged in -->
                   <a href="logout.php">Logout</a>
               <?php endif; ?>
 

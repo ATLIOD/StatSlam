@@ -1,12 +1,12 @@
 <?php
-session_start();
+session_start(); //start session
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
 
     // Connect to the database
-    $conn = new mysqli("localhost", "root", "", "statslam_db"); // Replace with your DB credentials
+    $conn = new mysqli("localhost", "root", "", "statslam_db");
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -24,13 +24,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $stmt->bind_result($id, $email, $hashedPassword);
         $stmt->fetch();
 
-        // **Verify the entered password against the hashed password**
+        // **validate entered password with hashed password**
         if (password_verify($password, $hashedPassword)) {
             // Successful login
             $_SESSION["userID"] = $id;
             $_SESSION["email"] = $email;
 
-            // Redirect to dashboard
+            // Redirect to homepage
             header("Location: index.php");
             exit();
         } else {

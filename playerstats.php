@@ -1,7 +1,8 @@
 <?php
+//start session
 session_start();
+//check if session logged in, if not then redirect to login
 if (!isset($_SESSION["userID"])) {
-    // Redirect to login page if not logged in
     header("Location: login.php");
     exit();
 }
@@ -9,24 +10,26 @@ $host = "localhost";
 $username = "root";
 $password = "";
 $database = "statslam_db";
-
+//connect to database
 $conn = new mysqli($host, $username, $password, $database);
-
+//if connection fail then error
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
+// get player id from url
 $playerID = isset($_GET["playerID"]) ? intval($_GET["playerID"]) : -1;
-
+// if player id valid
 if ($playerID >= 0) {
+    //query dtabase for statc matching playerid
     $stmt = $conn->prepare("SELECT * FROM playertotals WHERE playerID = ?");
-    $stmt->bind_param("i", $playerID);
-    $stmt->execute();
+    $stmt->bind_param("i", $playerID); //bind player id to ? for the query
+    $stmt->execute(); // execute query
     $result = $stmt->get_result();
-
+    // if result exists
     if ($result->num_rows > 0) {
-        $playerTotals = $result->fetch_assoc();
+        $playerTotals = $result->fetch_assoc(); //store results
     } else {
+        //else error
         die("error with player totals");
     }
 
@@ -36,15 +39,17 @@ if ($playerID >= 0) {
 }
 
 if ($playerID >= 0) {
+    // queary playerinfo for data relating to playerid
     $stmt = $conn->prepare(
         "SELECT name,age,seasonsPlayed,position,teamID FROM playerinfo WHERE playerID = ?"
     );
-    $stmt->bind_param("i", $playerID);
+    $stmt->bind_param("i", $playerID); //gind playerid to ?
     $stmt->execute();
     $result = $stmt->get_result();
 
+    //if result exist
     if ($result->num_rows > 0) {
-        $playerInfo = $result->fetch_assoc();
+        $playerInfo = $result->fetch_assoc(); //store result
     } else {
         die("error with player info");
     }
@@ -54,14 +59,16 @@ if ($playerID >= 0) {
     die("issue with players");
 }
 
+//query team info for team naem relating to team id that matched player id
 $stmt = $conn->prepare("SELECT city, name FROM teaminfo WHERE teamID = ?");
-$stmt->bind_param("i", $playerInfo["teamID"]);
+$stmt->bind_param("i", $playerInfo["teamID"]); //bind teamid to ?
 $stmt->execute();
 $result = $stmt->get_result();
 
+//if exists
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
-    $teamName = $row["city"] . " " . $row["name"];
+    $teamName = $row["city"] . " " . $row["name"]; //concatenate strings and store
 } else {
     die("Team not found.");
 }
@@ -96,11 +103,10 @@ $conn->close();
               <a href="pricing.php">Pricing</a>
 
               <?php if (!isset($_SESSION["userID"])): ?>
-                  <!-- Only show Login and Sign Up if the user is not logged in -->
+                  <!-- if logged in then show logout -->
                   <a href="login.php">Login</a>
                   <a href="signUp.php">Sign Up</a>
               <?php else: ?>
-                  <!-- Show Logout when logged in -->
                   <a href="logout.php">Logout</a>
               <?php endif; ?>
 

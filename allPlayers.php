@@ -1,7 +1,7 @@
 <?php
-session_start();
+session_start(); //start session
+//if notlogges in then redirect to login
 if (!isset($_SESSION["userID"])) {
-    // Redirect to login page if not logged in
     header("Location: login.php");
     exit();
 }
@@ -16,14 +16,14 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Get the current page number from the URL (default to page 1)
+// Get the current page number from url
 $page = isset($_GET["page"]) ? (int) $_GET["page"] : 1;
 $perPage = 50; // Number of players per page
 
-// Calculate the offset
+// offset
 $offset = ($page - 1) * $perPage;
 
-// Fetch players with stats for the current page
+// get players with stats for  page
 $sql = "
 SELECT playerinfo.playerID, playerinfo.name, playertotals.*
 FROM playerinfo
@@ -32,7 +32,7 @@ LIMIT $perPage OFFSET $offset
 ";
 $result = $conn->query($sql);
 
-// Fetch total number of players for pagination
+// get total num players for pagination
 $totalPlayers = $conn
     ->query(
         "
@@ -71,11 +71,9 @@ $totalPages = ceil($totalPlayers / $perPage);
                   <a href="pricing.php">Pricing</a>
 
                   <?php if (!isset($_SESSION["userID"])): ?>
-                      <!-- Only show Login and Sign Up if the user is not logged in -->
                       <a href="login.php">Login</a>
                       <a href="signUp.php">Sign Up</a>
                   <?php else: ?>
-                      <!-- Show Logout when logged in -->
                       <a href="logout.php">Logout</a>
                   <?php endif; ?>
 

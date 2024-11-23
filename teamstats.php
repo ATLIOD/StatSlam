@@ -1,8 +1,7 @@
 <?php
-session_start();
-
+session_start(); //start session
+//if not loggedin then redirect to login
 if (!isset($_SESSION["userID"])) {
-    // Redirect to login page if not logged in
     header("Location: login.php");
     exit();
 }
@@ -100,11 +99,10 @@ $conn->close();
                       <a href="pricing.php">Pricing</a>
 
                       <?php if (!isset($_SESSION["userID"])): ?>
-                          <!-- Only show Login and Sign Up if the user is not logged in -->
+                          <!-- if logged in, show logout -->
                           <a href="login.php">Login</a>
                           <a href="signUp.php">Sign Up</a>
                       <?php else: ?>
-                          <!-- Show Logout when logged in -->
                           <a href="logout.php">Logout</a>
                       <?php endif; ?>
 

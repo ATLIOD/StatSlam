@@ -35,11 +35,9 @@ if (!isset($_SESSION["userID"])) {
                       <a class = "active" href="pricing.php">Pricing</a>
 
                       <?php if (!isset($_SESSION["userID"])): ?>
-                          <!-- Only show Login and Sign Up if the user is not logged in -->
                           <a href="login.php">Login</a>
                           <a href="signUp.php">Sign Up</a>
                       <?php else: ?>
-                          <!-- Show Logout when logged in -->
                           <a href="logout.php">Logout</a>
                       <?php endif; ?>
 
