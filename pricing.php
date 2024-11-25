@@ -12,7 +12,7 @@ if (!isset($_SESSION["userID"])) {
 <html lang="en">
     <head>
         <div class="header-container">
-            <h1 class="webHeader">StatSlam</h1>
+            <h1 class="webHeader"><img src="basketball.png" style="width:40px;height:20px;" />StatSlam</h1>
             <div class="search-container">
                 <form action="search.php" method="post">
                     <input type="text" class="search-input" name="search" placeholder="Search...">
