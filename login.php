@@ -47,6 +47,7 @@ session_start(); ?>
 
             <button type="submit">Login</button>
         </form>
+        <p>Need to make an account? <a href="signUp.php">Sign up here</a>.</p>
     </div>
     </body>
 </html>

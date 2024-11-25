@@ -92,6 +92,7 @@ $conn->close();
                 <button type="submit" class="search-button">Search</button>
             </form>
         </div>
+    </div>
 
         <div class="topnav">
                       <a href="index.php">Home</a>
