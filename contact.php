@@ -1,4 +1,5 @@
-<?php//start session
+<?php
+//start session
 session_start(); ?>
 <!DOCTYPE html>
 
@@ -30,12 +31,14 @@ session_start(); ?>
                       <a href="allPlayers.php">Players</a>
                       <a href="pricing.php">Pricing</a>
 
-                      <?php if (!isset($_SESSION["userID"])): ?>
-                          <a href="login.php">Login</a>
-                          <a href="signUp.php">Sign Up</a>
-                      <?php else: ?>
-                          <a href="logout.php">Logout</a>
-                      <?php endif; ?>
+
+                    <?php if (!isset($_SESSION["userID"])): ?>
+                        <a href="login.php">Login</a>
+                        <a href="signUp.php">Sign Up</a>
+                    <?php else: ?>
+                        <a href="logout.php">Logout</a>
+                    <?php endif; ?>
+
 
                       <a class = "active" href="contact.php">Contact</a>
                     </div>
