@@ -2,7 +2,7 @@
 session_start();
 $host = "localhost";
 $username = "root";
-$password = "";
+$password = "root";
 $database = "statslam_db";
 
 $conn = new mysqli($host, $username, $password, $database);

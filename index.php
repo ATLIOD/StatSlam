@@ -11,14 +11,14 @@ if (!isset($_SESSION["userID"])) {
 <html>
 <head>
   <title>
-    Stats site
+    StatSlam
   </title>
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
     <div class="header-container">
-        <h1 class="webHeader"><img src="basketball.png" style="width:40px;height:20px;" />StatSlam</h1>
+        <h1 class="webHeader"><img src="images/basketball.png" style="width:40px;height:20px;" />StatSlam</h1>
         <div class="search-container">
             <form action="search.php" method="post">
                 <input type="text" class="search-input" name="search" placeholder="Search...">
@@ -52,12 +52,12 @@ if (!isset($_SESSION["userID"])) {
 
 
       <a href="teamstats.php?team=Philadelphia 76ers"><img src="images/76ers.png" alt="Philadelphia 76ers" style="width:100px;height:100px;"></a>
-      <a href="teamstats.php?team=Milwaukee Bucks"><img src="images/Bucks.png" alt="Milwaukee Bucks" style="width:100px;height100px;"></a>
+      <a href="teamstats.php?team=Milwaukee Bucks"><img src="images/Bucks.png" alt="Milwaukee Bucks" style="width:100px;height:100px;"></a>
       <a href="teamstats.php?team=Chicago Bulls"><img src="images/Bulls.png" alt="Chicago Bulls" style="width:100px;height:100px;"></a>
       <a href="teamstats.php?team=Cleveland Cavaliers"><img src="images/Cavaliers.png" alt="Cleveland Cavaliers" style="width:100px;height:100px;"></a>
       <a href="teamstats.php?team=Boston Celtics"><img src="images/Celtics.png" alt="Boston Celtics" style="width:100px;height:100px;"></a>
 <br>
-      <a href="teamstats.php?team=Los Angeles "><img src="images/Clippers.png " alt="Los Angeles Clippers" style="width:10000x;height100100x;"></a>
+      <a href="teamstats.php?team=Los Angeles "><img src="images/Clippers.png " alt="Los Angeles Clippers" style="width:100px;height:100px;"></a>
       <a href="teamstats.php?team=Memphis Grizzlies"><img src="images/Grizzlies.png" alt="Memphis Grizzlies" style="width:100px;height:100px;"></a>
       <a href="teamstats.php?team=Atlanta Hawks"><img src="images/Hawks.png" alt="Atlanta Hawks" style="width:100px;height:100px;"></a>
       <a href="teamstats.php?team=Miami Heat"><img src="images/Heat.png" alt="Miami Heat" style="width:100px;height:100px;"></a>
@@ -84,7 +84,7 @@ if (!isset($_SESSION["userID"])) {
       <a href="teamstats.php?team=Oklahoma City Thunder"><img src="images/Thunder.png" alt="Oklahoma City Thunder" style="width:100px;height:100px;"></a>
       <a href="teamstats.php?team=Minnesota Timberwolves"><img src="images/Timberwolves.png" alt="Minnesota Timberwolves" style="width:100px;height:100px;"></a>
       <a href="teamstats.php?team=Portland Trailblazers"><img src="images/Trailblazers.png" alt="Portland Trailblazers" style="width:100px;height:100px;"></a>
-      <a href="teamstats.php?team=Golden State Warriors"><img src="images/Warriors.png" alt="Golden State Warriors" style="width:100px;height:1m=0m=0m=px;"></a>
+      <a href="teamstats.php?team=Golden State Warriors"><img src="images/Warriors.png" alt="Golden State Warriors" style="width:100px;height:100px;"></a>
       <a href="teamstats.php?team=Washington Wizards"><img src="images/Wizards.png" alt="Washington Wizards" style="width:100px;height:100px;"></a>
 
   </div>

@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $password = $_POST["password"];
 
     // Connect to the database
-    $conn = new mysqli("localhost", "root", "", "statslam_db");
+    $conn = new mysqli("localhost", "root", "root", "statslam_db");
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);

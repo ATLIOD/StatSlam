@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
     // Connect to database
-    $conn = new mysqli("localhost", "root", "", "statslam_db");
+    $conn = new mysqli("localhost", "root", "root", "statslam_db");
 
     if ($conn->connect_error) {
         die("Database connection failed: " . $conn->connect_error);

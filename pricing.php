@@ -12,7 +12,7 @@ if (!isset($_SESSION["userID"])) {
 <html lang="en">
     <head>
         <div class="header-container">
-            <h1 class="webHeader"><img src="basketball.png" style="width:40px;height:20px;" />StatSlam</h1>
+            <h1 class="webHeader"><img src="images/basketball.png" style="width:40px;height:20px;" />StatSlam</h1>
             <div class="search-container">
                 <form action="search.php" method="post">
                     <input type="text" class="search-input" name="search" placeholder="Search...">
@@ -21,9 +21,9 @@ if (!isset($_SESSION["userID"])) {
             </div>
         </div>
         <title>
-            Stats site
+            StatSlam
         </title>
-        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="css/index.css">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
