@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $playerID = $row["playerID"];
             header(
                 //redirect to playerstats page for id matchign name searched for
-                "Location: http://localhost/playerstats.php?playerID=" .
+                "Location: http://localhost/StatSlam/playerstats.php?playerID=" .
                     urlencode($playerID)
             );
             exit();
